@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html style="height: 100%; width: 100%;">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="./img/icon.ico">
+        <title>Downgrading Guide - Latte U</title>
+
+        <link rel="stylesheet" href="../css/downgradeGuide.css">
+    </head>
+
+<body style="margin: 0px; height: 100%; width: 100%; position: sticky">
+    <div style="padding:16px 0px; height: 3910px; border-style: solid; border-color: #202020; background-color: #202020;">  
+        <!--Top navigation bar-->
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="https://discord.gg/wMzRZcHVpa">Discord</a></li>
+            <li><a href="pages/404.html">Staff</a></li>
+            <li><a href="pages/404.html">Guides</a></li>
+            <li><a href="pages/404.html">FAQ</a></li>
+
+        </ul>
+        
+
+            <div class="paragraph">
+                <h1>How to Downgrade your Wii U! - CymbalMonkey28</h1>
+                <p>Welcome to my terrible guide on how to downgrade your Wii U Menu and Home Menu to v24.
+                    
+                    <br><br>
+                    
+                    Downgrading has no real advantages, and is more of a gimmick than anything, but it still is pretty
+                    cool. It can brick your console, and this guide is no joke. If you aren't confident that you can do this,
+                    stay away from this. It's riskier than it sounds.
+                </p>
+
+                <h1>I AM NOT RESPONSIBLE FOR ANY DAMAGE CAUSED TO YOUR SYSTEM BY THIS.</h1>
+
+                <h2>Pros:</h2>
+                <p>
+                    You get an old menu.
+                </p>
+                <h2>Cons:</h2>
+                <p>There's quite a lot of cons to doing this.
+                    
+                    <br></br>
+
+                    1. You lose all homebrew. 
+                    <br></br>
+                    2. Lots of the UI Elements will not work. (No creating users, user settings, notifications.)
+                    <br></br>
+                    3. There's lots of room to brick your console. While most bricks can be recovered with UDPIH and recovery_menu, some can't.
+                    <br></br>
+                    4. When you are in the Wii U Menu, inserting a disc causes a crash. I don't know why. (Inserting a disc before boot will work though.)
+                </p>
+                <h2>What you need to do this</h2>
+                <p>
+                    -A Raspberry Pi Pico/Pi Zero, or a moddable Switch. <a href="https://nh-server.github.io/switch-guide/">Click here to see if your Switch is moddable and how to mod it.</a>
+                    <br></br>
+                    -A Wii U 
+                    <br></br>
+                    -Time and Patience
+                    <br></br>
+                    -Brain Cells
+                </p>
+
+                <br>
+                <br>
+                <br>
+                <br>
+            
+                <h2>Setting up UDPIH</h2>
+                </p>
+                <a href="https://github.com/GaryOderNichts/udpih">Click here to download UDPIH for a Pico/Zero.</a> If you are using a Switch, you need <a href="https://github.com/GaryOderNichts/udpih_nxpayload">this guide.</a> 
+                Once you setup UDPIH on your device, you need to download the latest version of <a href="https://github.com/GaryOderNichts/recovery_menu/releases">recovery_menu</a> and put it on the root of your Wii U's SD card.
+
+                <br>
+                <br>
+
+                <h2>Getting the menu files</h2>
+                </p>
+                Once you have setup UDPIH, you need to obtain the menu files that you will downgrade to. Download <a href="https://github.com/Maschell/JNUSTool">JNUSTool</a> and create a folder for to put the JNUSTool files in.
+                (Note: For JNUSTool to work, you need to have Java installed.) Once you have downloaded it, open a Command Prompt window in the directory your JNUSTool is in and type the following:
+                <p>For the Wii U Menu Files:</p>
+                <p style="color: chartreuse;">"java -jar JNUSTool.jar 0005001010040100 v24 -dlEncrypted"</p>
+                <p>For the HOME Menu Files:</p>
+                <p style="color: chartreuse;">"java -jar JNUSTool.jar 000500301001010A v24 -dlEncrypted"</p>
+                <p>Once you have the files, copy the folders that JNUSTool gave you, and copy them to SD:/install.</p>
+                <h3>Something to note</h3>
+                <p>These downloads are for US consoles. If your console is European or Japanese, refer to the <a href="https://wiiubrew.org/wiki/Title_database">WiiUBrew Title Database</a> to find the right title IDs for your region.
+                Installing the wrong title IDs on a different region will result in a brick unless you have region changed.</p>
+                
+                <br>
+                <br>
+
+                <h2>Setting up wupclient</h2>
+                <p>
+                To connect to your Wii U for deleting and installing files, you need wupclient. You can download it <a href="https://drive.google.com/file/d/1ckaGgUEN6qNobF7Tr94Aw1FfIZnxQCZ_/view?usp=sharing">here.</a> 
+                You must use thsiAfter you download it,
+                you need to modify it with a text editor and change the IP to your console's IP. The port does not need to be modified.</p>
+                
+                <br>
+                <br>
+
+                <h2>Deleting the old menu</h2>
+
+                <p>Now it's time to start modifying files! Plug in your Pico/Zero/Switch to one of the front USB ports on your Wii U (It has to be one of the front ones, other wise this will not work.) Power on your Wii U, and when the Wii U
+                 logo appears, run the payload on your device. You should boot into the recovery_menu. Use the eject button to go down to "Start Wupserver" and press the power button. It should display your system's IP. Now on your computer,
+                 open a command prompt window where you have wupclient and type "python -i wupclient.py". Now be very careful, you can brick easily deleting the files. To delete the files type the following into Command Prompt:
+
+                <p>For the Wii U Menu:</p>
+                <p style="color:chartreuse;">w.rmdir("/vol/storage_mlc01/sys/title/00050010/10040100")</p>
+
+                <p>For the HOME Menu:</p>
+                <p style="color:chartreuse;">w.rmdir("/vol/storage_mlc01/sys/title/00050030/1001010a")</p>
+
+                <br>
+                <br>
+
+                <h2>Installing the new files</h2>
+                <p>
+                You can now install the old menu! In wupclient, type the following:
+
+                <p>For the Wii U Menu:</p>
+                <p style="color: chartreuse;">install_title("install/tmp_0005001010040100_v24")</p>
+
+                <p>For the HOME Menu:</p>
+                <p style="color: chartreuse;">install_title("install/tmp_000500301001010A_v24")</p>
+                
+                <br>
+                <br>
+
+                <h2>Downgrading Versions.bin</h2>
+                <p>Now you need to downgrade Versions.bin to boot the menu properly.
+
+                <p>You just need to run this command in wupclient to delete the Versions.bin file on your console:</p>
+                <p style="color: chartreuse;">w.rmdir("/vol/system/security/versions.bin")</p>
+
+              
+                <p>You now need to install the Versions.bin file you downloaded earlier using this command in wupclient:</p>   
+
+                <p style="color: chartreuse;">install_title("install/tmp_0005001010041100_v24")</p>
+                <p>Then you can reboot and boot into your old menu!</p>
+
+                <br>
+                <br>
+
+                <h1>The Results</h1>
+                <p>Well, after all of that work, what do you get? Well, if you did everything right, you should be seeing something like this.</p>
+                <img src="../img/downgrade1.png">
+
+                <br></br>
+
+                <img src="../img/downgrade2.png">
+
+                <br></br>
+
+                <img src="../img/downgrade3.png">
+
+                <br></br>
+            </div>
+    </div>
+</body>
+    
+</html>

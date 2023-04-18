@@ -1,0 +1,50 @@
+body {margin: 0;}
+
+@font-face {
+    font-family: nintendo;
+    src: url(../CafeStd.ttf);
+}
+
+ul {
+    overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    transition: color 0.5s;
+    background-color:rgb(63, 63, 63);
+    opacity: 100;
+    position:fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float:left;
+    transition: color 0.5s;
+}
+
+li a {
+    text-align: center;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family:nintendo;
+    transition: color 0.5s;
+}
+
+a:hover {
+    transition: color 0.5s;
+    background-color: rgb(44, 44, 44);
+}
+
+.paragraph {
+    font-family: nintendo;
+    font-size: medium;
+
+    position: absolute;
+    top: 35px;
+
+    color:white;
+}

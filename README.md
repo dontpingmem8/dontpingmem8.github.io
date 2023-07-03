@@ -1,3 +1,3 @@
-# Some context
+# LOL!
 
-This site contains some random, out of context messages that were posted in rverse.
+Only made this for an closedverse ad. I'll make it better later when it isn't midnight, I promise!

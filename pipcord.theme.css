@@ -1,0 +1,17 @@
+/**
+ * @name Pipcord
+ * @version 1.0.0
+ * @description Pip, but turned into a Discord theme.
+ * @source https://braden-please-let-me-go-out-of-the-basement.xyz
+ */
+
+/* This theme is a joke. Don't use it. */
+
+/* SETTINGS */
+:root {
+    /* Status Colors */
+    --online-color; #C09E71;
+    
+    /* Background */
+    --background-image: url(https://braden-please-let-me-go-out-of-the-basement.xyz/pip2.png);
+}

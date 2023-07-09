@@ -7,6 +7,10 @@
 
 /* This theme is a joke. Don't use it. */
 
+/* Import ClearVision CSS */
+@import url(https://clearvision.github.io/ClearVision-v6/main.css);
+
+
 /* SETTINGS */
 :root {
     /* Status Colors */

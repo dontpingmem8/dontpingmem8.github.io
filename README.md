@@ -1,6 +1,6 @@
-# What this is
+# What is this website, it looks terrible!
 
-Only made this for an closedverse ad. I'll make it better later when it isn't midnight, I promise!
+I only made this for an closedverse ad. I'll make it better later when it isn't midnight, I promise!
 
 # It's not midnight and it still looks bad, I want a refund!
 

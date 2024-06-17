@@ -1,0 +1,39 @@
+html, body {
+    height: 95%;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+body {
+    background: #10101B;
+    color:#fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: cursive;
+}
+
+h1 {
+    font-family: "Arial";
+    font-weight: 900;
+    color:red;
+    font-size: 5em;
+}
+
+p {
+    font-size: 2em;
+}
+
+hr {
+    color: #303040;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+a {
+    color:#ccf;
+}
